@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "dev": "npx @tailwindcss/cli -i ./src/input.css -o ./dist/style.css --watch",
+    "dev_php": "npx tailwindcss -i C:/xampp/htdocs/dist/src/input.css -o C:/xampp/htdocs/dist/style.css --watch"
+  },
+  "dependencies": {
+    "@tailwindcss/cli": "^4.0.14",
+    "tailwindcss": "^4.0.14"
+  }
+}

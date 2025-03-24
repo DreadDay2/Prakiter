@@ -1,0 +1,30 @@
+@import "tailwindcss";
+@import url('https://fonts.cdnfonts.com/css/black-bison');
+/*czcionka do zmiany jeszcze*/
+*{
+    font-family: 'Black Bison', sans-serif;
+}
+
+body{
+    @apply box-border;
+}
+
+body::-webkit-scrollbar{
+    @apply hidden;
+}
+
+html{
+    @apply scroll-smooth;
+}
+
+label{
+    @apply mb-[3vh];
+}
+
+.typed-cursor{
+    @apply hidden;
+}
+
+audio::-webkit-media-controls-panel{
+    @apply bg-gray-400;
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRAKTIKER</title>
+    <link href="./style.css" rel="stylesheet">
+</head>
+<body class="bg-gray-800 justify-center items-center flex flex-col overflow-x-hidden">
+    <div class="flex flex-col justify-center items-center min-h-screen">
+        <div class="relative font-bold text-white text-2xl lg:text-6xl lg:p-[3rem] bg-gray-500 w-[80vw] lg:w-[70vw] h-auto lg:min-h-[22vh] text-center rounded-lg">
+            <div class="absolute inset-0 blur-xl rounded-lg bg-gradient-to-r from-emerald-400 to-cyan-400"></div>
+            <div class="absolute inset-0 bg-gray-700 rounded-lg"></div>
+            <h1 class="relative"><p class="w-full p-[30px] leading-[0.8] after:content-['']"><span class="header drop-shadow-lg w-full"></span></p></h1>
+        </div>
+        <a href="#more_info">
+            <button class="outline-3 outline-solid outline-offset-2 font-bold p-[6px] w-[40vw] md:w-[20vw] mt-[3vh] text-white hover:bg-gray-500 hover:outline-emerald-400 hover:text-white">DOWIEDZ SIĘ WIĘCEJ!</button>
+        </a>
+    </div> 
+    <div id="more_info" class="flex flex-col items-center justify-center md:flex-row min-h-screen bg-gray-800 w-screen">
+        <div class=" md:w-[40vw] flex items-center justify-center">
+            <img class="md:w-[65%] md:h-[80%] rounded-b-4xl md:p-[5px] p-[25px] md:outline-3 md:outline-solid md:outline-offset-2 md:bg-gray-600 text-white drop-shadow-lg" src="img/maciejewski.png" alt="Roman Maciejewski">
+        </div>
+        <div class="md:w-[60vw] md:p-[30px] p-[15px] flex flex-col justify-center items-center">
+            <script>
+                let lastUpdate = '1970-01-01 00:00:00';
+            
+                async function loadContent() {
+                    try {
+                        const response = await fetch("admin/getContent.php");
+                        const data = await response.json();
+                
+                        if (data.status === 'success') {
+                            document.getElementById('content').innerHTML = data.content;
+                            lastUpdate = data.created_at;
+                        }
+                    } 
+                    catch (error) {
+                        console.error('Błąd podczas pobierania treści:', error);
+                    }
+                }
+            loadContent();
+            </script>
+            <h2 class="md:text-3xl text-xl text-emerald-400 font-bold text-center mb-[2vh]">Roman Maciejewski – wybitny polski kompozytor</h2>
+            <p id="content" class="font-bold text-white text-center mb-[2vh]"></p>
+            <p class="flex flex-col items-center justify-center text-center">
+                <span class="text-emerald-400 font-bold text-xl">Chcesz posiadać jego utwory na własnym urządzeniu ?<br>Kliknij przycisk poniżej aby dowiedzieć się więcej!</span>
+                <a href="login.html">
+                    <button class="outline-3 outline-solid outline-offset-2 font-bold md:text-xl p-[6px] w-[30vw] md:w-[15vw] mt-[3vh] text-white hover:bg-gray-500 hover:outline-emerald-400 hover:text-white mb-[3vh]">LOGOWANIE</button>
+                </a>
+                <span class="text-emerald-400 font-bold text-xl">Lub chcesz posłuchać jego twórczości ?<br>Kliknij przycisk poniżej!</span>
+                <a href="songs.php">
+                    <button class="outline-3 outline-solid outline-offset-2 font-bold md:text-xl p-[6px] w-[30vw] md:w-[15vw] mt-[3vh] text-white hover:bg-gray-500 hover:outline-emerald-400 hover:text-white mb-[3vh]">PRZEGLĄDAJ UTWORY</button>
+                </a>
+            </p>
+            </div>
+    </div>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script> 
+        var typed = new Typed(".header", {
+            strings: ['ROMAN MACIEJEWSKI', 'POLSKI KOMPOZYTOR', 'POLSKI PIANISTA'], 
+            typeSpeed: 100,
+            //typeSpeed: 10000,
+            backSpeed: 70,
+            loop: true
+        });   
+    </script>
+</body>
+</html>
